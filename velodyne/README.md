@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/ros-drivers/velodyne.svg?branch=master)](https://travis-ci.org/ros-drivers/velodyne)
+**Run launch-file on multiple pcap episodes:**
+roslaunch velodyne_pointcloud VLP16_points.launch pcap:=/home/ubuntu/bagfiles/trm.052. play_season:=true start:=5 end:=12
+
+
+
 
 Overview
 ========
