@@ -12,6 +12,7 @@
   <arg name="read_fast" default="false" />
   <arg name="read_once" default="false" />
   <arg name="repeat_delay" default="0.0" />
+  <arg name="use_pcap_time" default="false"/>
   <arg name="rpm" default="600.0" />
   <arg name="cut_angle" default="-0.01" />
   <arg name="play_season" default="false" />
@@ -32,6 +33,7 @@
     <param name="read_fast" value="$(arg read_fast)"/>
     <param name="read_once" value="$(arg read_once)"/>
     <param name="repeat_delay" value="$(arg repeat_delay)"/>
+    <param name="use_pcap_time" value="$(arg use_pcap_time)"/>
     <param name="rpm" value="$(arg rpm)"/>
     <param name="cut_angle" value="$(arg cut_angle)"/>
     <param name="play_season" value="$(arg play_season)" />

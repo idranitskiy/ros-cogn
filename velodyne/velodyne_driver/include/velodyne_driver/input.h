@@ -103,6 +103,7 @@ namespace velodyne_driver
               bool read_once=false,
               bool read_fast=false,
               double repeat_delay=0.0,
+              bool use_pcap_time=false,
               bool play_season_=false,
               int start=1,
               int end=999);
@@ -126,6 +127,7 @@ namespace velodyne_driver
     int start_;
     int end_;
     int episode;
+    bool use_pcap_time_;
   };
 
 } // velodyne_driver namespace

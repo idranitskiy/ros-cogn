@@ -14,6 +14,7 @@
   <arg name="port" default="2368" />
   <arg name="read_fast" default="false" />
   <arg name="read_once" default="false" />
+  <arg name="use_pcap_time" default="false"/>
   <arg name="repeat_delay" default="0.0" />
   <arg name="rpm" default="600.0" />
   <arg name="cut_angle" default="-0.01" />
@@ -33,6 +34,7 @@
     <arg name="port" value="$(arg port)"/>
     <arg name="read_fast" value="$(arg read_fast)"/>
     <arg name="read_once" value="$(arg read_once)"/>
+    <arg name="use_pcap_time" value="$(arg use_pcap_time)"/>
     <arg name="repeat_delay" value="$(arg repeat_delay)"/>
     <arg name="rpm" value="$(arg rpm)"/>
     <arg name="cut_angle" value="$(arg cut_angle)"/>
