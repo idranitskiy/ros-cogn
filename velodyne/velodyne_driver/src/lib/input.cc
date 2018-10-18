@@ -220,10 +220,12 @@ namespace velodyne_driver
    *  @param port UDP port number
    *  @param packet_rate expected device packet frequency (Hz)
    *  @param filename PCAP dump file name
+   *  @param use_pcap_time use PCAP time, unless false
    */
   InputPCAP::InputPCAP(ros::NodeHandle private_nh, uint16_t port,
                        double packet_rate, std::string filename,
-                       bool read_once, bool read_fast, double repeat_delay, 
+                       bool read_once, bool read_fast, double repeat_delay,
+                       bool use_pcap_time, 
                        bool play_season, int start, int end):
     Input(private_nh, port),
     packet_rate_(packet_rate),
@@ -236,6 +238,7 @@ namespace velodyne_driver
     private_nh.param("read_once", read_once_, false);
     private_nh.param("read_fast", read_fast_, false);
     private_nh.param("repeat_delay", repeat_delay_, 0.0);
+    private_nh.param("use_pcap_time", use_pcap_time_, use_pcap_time);
     private_nh.param("play_season", play_season_, true);
     private_nh.param("start", start_, 1);
     private_nh.param("end", end_, 999);
@@ -331,7 +334,14 @@ namespace velodyne_driver
               packet_rate_.sleep();
             
             memcpy(&pkt->data[0], pkt_data+42, packet_size);
-            pkt->stamp = ros::Time::now(); // time_offset not considered here, as no synchronization required
+            if(use_pcap_time_)
+            {
+              pkt->stamp = ros::Time(header->ts.tv_sec, header->ts.tv_usec*1000);
+            }
+            else
+            {
+              pkt->stamp = ros::Time::now(); // time_offset not considered here, as no synchronization required
+            }
             empty_ = false;
             return 0;                   // success
           }

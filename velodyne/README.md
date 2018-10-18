@@ -3,6 +3,10 @@ roslaunch velodyne_pointcloud VLP16_points.launch pcap:=/home/ubuntu/bagfiles/tr
 
 
 
+**To use PCAP timestamps**, please use use_pcap_time flag:
+roslaunch velodyne_pointcloud VLP16_points.launch pcap:=/home/ubuntu/bagfiles/trm.052. play_season:=true start:=5 end:=12 use_pcap_time:="True"
+
+
 
 Overview
 ========
